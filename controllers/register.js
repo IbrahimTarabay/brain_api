@@ -1,4 +1,4 @@
-const handleRegister = (db,bcrypt) => (req,res) => {
+const handleRegister = (db,bcrypt) => (req,res) => {//function that return another function
 	const { email, name, password } = req.body;
 	if(!email || !name || !password) {
 		return res.status(400).json('incorrect form submission');
@@ -20,7 +20,7 @@ const handleRegister = (db,bcrypt) => (req,res) => {
 			    	joined: new Date()
 			    })
 			      .then(user => {
-			    res.json(user[0]);
+			    res.json(user[0]);//there is one user object in array
 	    })
 	  })
 		 .then(trx.commit)
@@ -28,7 +28,6 @@ const handleRegister = (db,bcrypt) => (req,res) => {
 	})
         .catch(err => res.status(400).json('unable to register'))
 }
-
 
 module.exports = {
 	handleRegister
