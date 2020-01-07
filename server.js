@@ -18,8 +18,8 @@ const db = knex({
 
 const app = express();
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 //Dependency injection to make db,bcrypt work in controllers files
 app.get('/', (req, res) => {res.send("it's working!")})
